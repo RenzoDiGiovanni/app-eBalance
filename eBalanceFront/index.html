@@ -1,0 +1,297 @@
+<html>
+
+<head>
+  <title>eBalance</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/onsenui.css" rel="stylesheet" type="text/css">
+  <link href="css/onsen-css-components.min.css" rel="stylesheet" type="text/css">
+  <link href="css/estilos.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <ons-splitter>
+    <ons-splitter-side id="menu" side="left" width="0px" collapse swipeable>
+      <ons-page>
+        <ons-list>
+          <ons-list-item onclick="fn.load('dashboard.html')" tappable>
+            dasbhoard
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('listado.html')" tappable>
+            listado
+          </ons-list-item>
+          <ons-list-item onclick="fn.load('alimentos.html')" tappable>
+            recetas
+          </ons-list-item>
+        </ons-list>
+      </ons-page>
+    </ons-splitter-side>
+    <ons-splitter-content id="content" page="home.html"></ons-splitter-content>
+  </ons-splitter>
+
+  <template id="home.html">
+    <ons-page id="home">
+      <h1 class="card__title">Iniciar sesión</h1>
+      <div class="card__content">
+        <input type="text" class="text-input text-input--material" placeholder="Usuario" id="txtUsuarioDos">
+        <input type="text" class="text-input text-input--material" placeholder="Contraseña" id="txtContrasena">
+        <br>
+        <input type="button" id="btnIngresar" class="button button--material" value="ingresar">
+        <br><br>
+        <input type="button" id="btnRegistrar" class="button button--material" value="Registrarse">
+        <p id="mensaje"></p>
+      </div>
+    </ons-page>
+  </template>
+
+  <template id="registrar.html">
+    <ons-page id="registrar">
+      <h1>Registrarse</h1>
+      <input type="text" id="txtUsuario" class="text-input text-input--material" placeholder="Usuario">
+      <input type="text" id="txtContrasenia" class="text-input text-input--material" placeholder="Contraseña">
+      <br>
+      <input type="button" id="btnRegistro" class="button button--material" value="Registrarse">
+      <p id="mensaje"></p>
+    </ons-page>
+  </template>
+
+  <template id="alimentos.html">
+    <ons-page id="alimentos">
+      <h1>ALIMENTOS</h1>
+      <ul class="list">
+
+      </ul>
+      <div class="dialog-mask mascara1"></div>
+      <div class="dialog mascara1a">
+        <div class="dialog-container">
+          <h1>EDITAR RECIPIENTE</h1>
+          <label class="radio-button radio-button--material">
+            <input type="radio" id="S" class="radio-button__input radio-button--material__input" name="r" value="S">
+            <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+            S
+          </label>
+          <label class="radio-button radio-button--material">
+            <input type="radio" id="M" class="radio-button__input radio-button--material__input" name="r" value="M">
+            <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+            M
+          </label>
+          <label class="radio-button radio-button--material">
+            <input type="radio" id="L" class="radio-button__input radio-button--material__input" name="r" value="L">
+            <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+            L
+          </label>
+          <label class="radio-button radio-button--material">
+            <input type="radio" id="XL" class="radio-button__input radio-button--material__input" name="r" value="XL">
+            <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+            XL
+          </label>
+          <p id="radioSeleccionado"></p>
+          <select name="select" id="opcionesAlimentos">
+            <option value="Azúcar">Azúcar</option>
+            <option value="Arroz">Arroz</option>
+            <option value="Avena">Avena</option>
+            <option value="Fideos">Fideos</option>
+            <option value="Sal">Sal</option>
+            <option value="Harina">Harina</option>
+          </select>
+          <input type="button" id="btnConfirmar2" class="button button--material" value="Confirmar">
+          <input type="button" id="btnCancelar2" class="button button--material" value="Cancelar">
+        </div>
+      </div>
+    </ons-page>
+  </template>
+
+  <template id="recetas.html">
+    <ons-page id="recetas">
+      <h1>Las más recientes</h1>
+      <div class="listaRecetasRecientes"></div>
+      <h1>Con tus alimentos</h1>
+      <div class="listaRecetasRelacionadas"></div>
+    </ons-page>
+  </template>
+
+  <template id="dashboard.html">
+    <ons-page id="dashboard">
+      <h1>DASHBOARD</h1>
+      <div class="listaRecipientes">
+
+      </div>
+      <input type="button" id="btnAgregar" class="button button--material" value="Agregar">
+      <div class="dialog-mask"></div>
+      <div class="dialog">
+        <div class="dialog-container">
+          <h1>AGREGAR RECIPIENTE</h1>
+          <label class="radio-button radio-button--material">
+            <input type="radio" class="radio-button__input radio-button--material__input" name="r" value="S">
+            <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+            S
+          </label>
+          <label class="radio-button radio-button--material">
+            <input type="radio" class="radio-button__input radio-button--material__input" name="r" value="M">
+            <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+            M
+          </label>
+          <label class="radio-button radio-button--material">
+            <input type="radio" class="radio-button__input radio-button--material__input" name="r" value="L">
+            <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+            L
+          </label>
+          <label class="radio-button radio-button--material">
+            <input type="radio" class="radio-button__input radio-button--material__input" name="r" value="XL">
+            <div class="radio-button__checkmark radio-button--material__checkmark"></div>
+            XL
+          </label>
+          <select name="select" id="opcionesAlimentos">
+            <option value="Azúcar">Azúcar</option>
+            <option value="Arroz">Arroz</option>
+            <option value="Avena">Avena</option>
+            <option value="Fideos">Fideos</option>
+            <option value="Sal">Sal</option>
+            <option value="Harina">Harina</option>
+          </select>
+          <input type="button" id="btnConfirmar" class="button button--material" value="Confirmar">
+          <input type="button" id="btnCancelar" class="button button--material" value="Cancelar">
+        </div>
+      </div>
+    </ons-page>
+  </template>
+
+  <template id="favoritos.html">
+    <ons-page id="favoritos">
+      <h1>FAVORITOS</h1>
+    </ons-page>
+  </template>
+
+  <template id="perfil.html">
+    <ons-page id="perfil">
+      <h1>PERFIL</h1>
+      <input type="button" id="btnAgregarReceta" class="button button--material" value="Agregar Receta">
+
+    </ons-page>
+  </template>
+
+  <template id="ampliacion.html">
+    <ons-page id="ampliacion">
+      <h1>RECETA</h1>
+      <div class="ingredientes"></div>
+    </ons-page>
+  </template>
+
+  <template id="agregar.html">
+    <ons-page id="agregar">
+      <h1>AGREGAR RECETA</h1>
+      <div class="agregarReceta">
+        <input type="text" class="text-input text-input--underbar" placeholder="Nombre de la receta" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Descripción" value="">
+          <div><select class="select-input select-input--underbar">
+            <option value="" selected disabled hidden>Cantidad de personas</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select></div>
+          <div><select class="select-input select-input--underbar">
+            <option value="" selected disabled hidden>Tiempo estimado</option>
+            <option value="5">5 minutos</option>
+            <option value="10">10 minutos</option>
+            <option value="15">15 minutos</option>
+            <option value="20">20 minutos</option>
+            <option value="25">25 minutos</option>
+            <option value="30">30 minutos</option>
+            <option value="40">40 minutos</option>
+            <option value="50">50 minutos</option>
+            <option value="60">60 minutos</option>
+            <option value="70">70 minutos</option>
+            <option value="80">80 minutos</option>
+            <option value="90">90 minutos</option>
+            <option value="100">100 minutos</option>
+            <option value="120">120 minutos</option>
+            <option value="140">140 minutos</option>
+            <option value="160">160 minutos</option>
+            <option value="180">180 minutos</option>
+          </select></div>
+          <input type="text" class="text-input text-input--underbar" placeholder="Ingrediente 1" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Cantidad Ingrediente 1" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Ingrediente 2" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Cantidad Ingrediente 2" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Ingrediente 3" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Cantidad Ingrediente 3" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Ingrediente 4" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Cantidad Ingrediente 4" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Paso 1" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Paso 2" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Paso 3" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Paso 4" value="">
+          <input type="text" class="text-input text-input--underbar" placeholder="Paso 5" value="">
+
+          <div><label>Imagen de la receta</label></div>
+          <input type="file" name="imagen" class="agregarImagen">
+
+          <input type="button" id="btnConfirmarReceta" class="button button--material" value="Confirmar">
+          <input type="button" id="btnCancelarReceta" class="button button--material" value="Cancelar">
+
+      </div>
+    </ons-page>
+  </template>
+
+  <div class="tabbar">
+    <label class="tabbar__item" onclick="fn.load('alimentos.html')">
+      <input type="radio" name="tabbar-a">
+      <button class="tabbar__button">
+        <i class="tabbar__icon ion-ios-square"></i>
+        <div class="tabbar__label">Alimentos</div>
+      </button>
+    </label>
+
+    <label class="tabbar__item" onclick="fn.load('recetas.html')">
+      <input type="radio" name="tabbar-a">
+      <button class="tabbar__button">
+        <i class="tabbar__icon ion-ios-star"></i>
+        <div class="tabbar__label">Recetas</div>
+      </button>
+    </label>
+
+    <label class="tabbar__item" onclick="fn.load('dashboard.html')">
+      <input type="radio" name="tabbar-a" checked="checked">
+      <button class="tabbar__button">
+        <i class="tabbar__icon ion-ios-radio-button-on"></i>
+        <div class="tabbar__label">Dashboard</div>
+      </button>
+    </label>
+
+    <label class="tabbar__item" onclick="fn.load('favoritos.html')">
+      <input type="radio" name="tabbar-a">
+      <button class="tabbar__button">
+        <i class="tabbar__icon ion-ios-radio-button-on"></i>
+        <div class="tabbar__label">Favoritos</div>
+      </button>
+    </label>
+
+    <label class="tabbar__item" onclick="fn.load('perfil.html')">
+      <input type="radio" name="tabbar-a">
+      <button class="tabbar__button">
+        <i class="tabbar__icon ion-ios-radio-button-on"></i>
+        <div class="tabbar__label">Perfil</div>
+      </button>
+    </label>
+  </div>
+
+  <script src="cordova.js"></script>
+  <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+  <script src="js/onsenui.min.js"></script>
+  <script src="js/codigo.js" type="text/javascript"></script>
+</body>
+
+</html>

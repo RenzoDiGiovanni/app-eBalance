@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+}
+.dialog-container {
+    height: 70vh !important;
+    width: 44vh;
+}
+.list-item__right p {
+    margin-left: 12px;
+}
+.cajaRecipientes {
+    width: 18vh;
+    padding: 1px 0 0 0;
+    float: left;
+}
+.cajaRecetas .card img {
+    width: 100%;
+}
+.agregarReceta input {
+    margin-bottom: 6vh;
+}
+.agregarReceta div select {
+    margin-bottom: 6vh;
+}
